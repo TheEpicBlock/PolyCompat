@@ -21,11 +21,13 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation "com.github.TheEpicBlock:PolyMc:${project.polymc_version}"
+	modImplementation ("com.github.TheEpicBlock:PolyMc:${project.polymc_version}") {
+		exclude module: "lithium-fabric"
+	}
 
 
 	//START OF IMPORTED MODS//
-
+	modImplementation "com.github.theepicblock:forceheroes:1e34994"
 	//END OF IMPORTED MODS//
 }
 
