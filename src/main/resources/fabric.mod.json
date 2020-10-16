@@ -3,14 +3,14 @@
   "id": "modid",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Poly Compat",
+  "description": "Companion to PolyMc, adds mod-specific code to aid serverside compatibility.",
   "authors": [
-    "Me!"
+    "TheEpicBlock_TEB"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/TheEpicBlock/PolyCompat/blob/master/README.md",
+    "sources": "https://github.com/TheEpicBlock/PolyCompat"
   },
 
   "license": "CC0-1.0",
@@ -19,11 +19,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "nl.theepicblock.polycompat.PolyCompat"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "polycompat.mixins.json"
   ],
 
   "depends": {
