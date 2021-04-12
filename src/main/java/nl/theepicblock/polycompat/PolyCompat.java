@@ -6,12 +6,9 @@ import io.github.theepicblock.polymc.resource.ResourcePackMaker;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
-import nl.theepicblock.polycompat.module.forceheroes.Init;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
 
 public class PolyCompat implements ModInitializer, PolyMcEntrypoint {
 	@Override
