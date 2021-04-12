@@ -11,7 +11,22 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-	maven { url 'https://jitpack.io' }
+	maven {
+		name "JitPack"
+		url "https://jitpack.io"
+	}
+
+	maven {
+		name "Modmaven"
+		url "https://modmaven.dev/"
+	}
+	maven {
+		name = "BuildCraft"
+		url = "https://mod-buildcraft.com/maven"
+		content {
+			includeGroup "alexiil.mc.lib"
+		}
+	}
 }
 
 dependencies {
