@@ -25,7 +25,9 @@ dependencies {
 
 
 	//START OF IMPORTED MODS//
-
+	// AE2
+	modImplementation "appeng:appliedenergistics2-fabric:${project.ae2_version}"
+	modImplementation "appeng:appliedenergistics2-fabric:${project.ae2_version}:api"
 	//END OF IMPORTED MODS//
 }
 
