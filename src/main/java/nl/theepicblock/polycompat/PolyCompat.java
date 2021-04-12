@@ -14,14 +14,14 @@ public class PolyCompat implements ModInitializer, PolyMcEntrypoint {
 	@Override
 	public void onInitialize() {
 		for (ModContainer c : FabricLoader.getInstance().getAllMods()) {
-			String modid = c.getMetadata().getId();
-			if (doesModuleExist(modid)) {
+			String modId = c.getMetadata().getId();
+			if (doesModuleExist(modId)) {
 				try {
-					Class<?> myClass = Class.forName(getClassPathForModule(modid) + ".Init");
+					Class<?> myClass = Class.forName(getClassPathForModule(modId) + ".Init");
 					Method method = myClass.getDeclaredMethod("onInitialize");
 					method.invoke(null);
 				} catch (ClassNotFoundException | InvocationTargetException | IllegalAccessException e) {
-					printReflectionError(modid,"onInitialize", e);
+					printReflectionError(modId,"onInitialize", e);
 				} catch (NoSuchMethodException ignored) {
 				}
 			}
@@ -29,16 +29,16 @@ public class PolyCompat implements ModInitializer, PolyMcEntrypoint {
 	}
 
 	@Override
-	public void registerPolys(PolyRegistry polyRegistry) {
+	public void registerPolys(PolyRegistry registry) {
 		for (ModContainer c : FabricLoader.getInstance().getAllMods()) {
-			String modid = c.getMetadata().getId();
-			if (doesModuleExist(modid)) {
+			String modId = c.getMetadata().getId();
+			if (doesModuleExist(modId)) {
 				try {
-					Class<?> myClass = Class.forName(getClassPathForModule(modid) + ".Init");
-					Method method = myClass.getDeclaredMethod("registerPolys", PolyRegistry.class);
-					method.invoke(null, polyRegistry);
+					Class<?> myClass = Class.forName(getClassPathForModule(modId) + ".Init");
+					Method method = myClass.getDeclaredMethod("RegisterPolys", PolyRegistry.class);
+					method.invoke(null, registry);
 				} catch (ClassNotFoundException | InvocationTargetException | IllegalAccessException e) {
-					printReflectionError(modid,"registerPolys", e);
+					printReflectionError(modId,"RegisterPolys", e);
 				} catch (NoSuchMethodException ignored) {
 				}
 			}
@@ -48,14 +48,14 @@ public class PolyCompat implements ModInitializer, PolyMcEntrypoint {
 	@Override
 	public void registerModSpecificResources(ResourcePackMaker pack) {
 		for (ModContainer c : FabricLoader.getInstance().getAllMods()) {
-			String modid = c.getMetadata().getId();
-			if (doesModuleExist(modid)) {
+			String modId = c.getMetadata().getId();
+			if (doesModuleExist(modId)) {
 				try {
-					Class<?> myClass = Class.forName(getClassPathForModule(modid) + ".Init");
-					Method method = myClass.getDeclaredMethod("registerPolys", ResourcePackMaker.class);
+					Class<?> myClass = Class.forName(getClassPathForModule(modId) + ".Init");
+					Method method = myClass.getDeclaredMethod("RegisterModSpecificResources", ResourcePackMaker.class);
 					method.invoke(null, pack);
 				} catch (ClassNotFoundException | InvocationTargetException | IllegalAccessException e) {
-					printReflectionError(modid,"registerPolys", e);
+					printReflectionError(modId,"RegisterModSpecificResources", e);
 				} catch (NoSuchMethodException ignored) {
 				}
 			}
