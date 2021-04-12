@@ -1,8 +1,8 @@
 package nl.theepicblock.polycompat;
 
 import io.github.theepicblock.polymc.api.PolyMcEntrypoint;
-import io.github.theepicblock.polymc.api.register.PolyRegistry;
-import io.github.theepicblock.polymc.resource.ResourcePackMaker;
+import io.github.theepicblock.polymc.api.PolyRegistry;
+import io.github.theepicblock.polymc.api.resource.ResourcePackMaker;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
