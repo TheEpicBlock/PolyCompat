@@ -15,15 +15,13 @@ public class PolyCompat implements ModInitializer, PolyMcEntrypoint {
 	public void onInitialize() {
 		for (ModContainer c : FabricLoader.getInstance().getAllMods()) {
 			String modId = c.getMetadata().getId();
-			if (doesModuleExist(modId)) {
-				try {
-					Class<?> myClass = Class.forName(getClassPathForModule(modId) + ".Init");
-					Method method = myClass.getDeclaredMethod("onInitialize");
-					method.invoke(null);
-				} catch (ClassNotFoundException | InvocationTargetException | IllegalAccessException e) {
-					printReflectionError(modId,"onInitialize", e);
-				} catch (NoSuchMethodException ignored) {
-				}
+			try {
+				Class<?> myClass = Class.forName(getClassPathForModule(modId) + ".Init");
+				Method method = myClass.getDeclaredMethod("onInitialize");
+				method.invoke(null);
+			} catch (InvocationTargetException | IllegalAccessException e) {
+				printReflectionError(modId,"onInitialize", e);
+			} catch (ClassNotFoundException | NoSuchMethodException ignored) {
 			}
 		}
 	}
@@ -32,15 +30,13 @@ public class PolyCompat implements ModInitializer, PolyMcEntrypoint {
 	public void registerPolys(PolyRegistry registry) {
 		for (ModContainer c : FabricLoader.getInstance().getAllMods()) {
 			String modId = c.getMetadata().getId();
-			if (doesModuleExist(modId)) {
-				try {
-					Class<?> myClass = Class.forName(getClassPathForModule(modId) + ".Init");
-					Method method = myClass.getDeclaredMethod("registerPolys", PolyRegistry.class);
-					method.invoke(null, registry);
-				} catch (ClassNotFoundException | InvocationTargetException | IllegalAccessException e) {
-					printReflectionError(modId,"registerPolys", e);
-				} catch (NoSuchMethodException ignored) {
-				}
+			try {
+				Class<?> myClass = Class.forName(getClassPathForModule(modId) + ".Init");
+				Method method = myClass.getDeclaredMethod("registerPolys", PolyRegistry.class);
+				method.invoke(null, registry);
+			} catch (InvocationTargetException | IllegalAccessException e) {
+				printReflectionError(modId,"registerPolys", e);
+			} catch (ClassNotFoundException | NoSuchMethodException ignored) {
 			}
 		}
 	}
@@ -49,15 +45,13 @@ public class PolyCompat implements ModInitializer, PolyMcEntrypoint {
 	public void registerModSpecificResources(ResourcePackMaker pack) {
 		for (ModContainer c : FabricLoader.getInstance().getAllMods()) {
 			String modId = c.getMetadata().getId();
-			if (doesModuleExist(modId)) {
-				try {
-					Class<?> myClass = Class.forName(getClassPathForModule(modId) + ".Init");
-					Method method = myClass.getDeclaredMethod("registerModSpecificResources", ResourcePackMaker.class);
-					method.invoke(null, pack);
-				} catch (ClassNotFoundException | InvocationTargetException | IllegalAccessException e) {
-					printReflectionError(modId,"registerModSpecificResources", e);
-				} catch (NoSuchMethodException ignored) {
-				}
+			try {
+				Class<?> myClass = Class.forName(getClassPathForModule(modId) + ".Init");
+				Method method = myClass.getDeclaredMethod("registerModSpecificResources", ResourcePackMaker.class);
+				method.invoke(null, pack);
+			} catch (InvocationTargetException | IllegalAccessException e) {
+				printReflectionError(modId,"registerModSpecificResources", e);
+			} catch (ClassNotFoundException | NoSuchMethodException ignored) {
 			}
 		}
 	}
@@ -89,16 +83,5 @@ public class PolyCompat implements ModInitializer, PolyMcEntrypoint {
 
 	private String getClassPathForModule(String modid) {
 		return "nl.theepicblock.polycompat.module."+modid;
-	}
-
-	private boolean doesModuleExist(String modid) {
-		Package[] packages = Package.getPackages();
-		String nameToCheckFor = getClassPathForModule(modid);
-		for (Package p : packages) {
-			if (p.getName().startsWith(nameToCheckFor)) {
-				return true;
-			}
-		}
-		return false;
 	}
 }
