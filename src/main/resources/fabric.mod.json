@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "polycompat",
   "version": "${version}",
 
   "name": "Poly Compat",
   "description": "Companion to PolyMc, adds mod-specific code to aid serverside compatibility.",
   "authors": [
-    "TheEpicBlock_TEB"
+    "TheEpicBlock"
   ],
   "contact": {
     "homepage": "https://github.com/TheEpicBlock/PolyCompat/blob/master/README.md",
