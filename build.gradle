@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.5-SNAPSHOT'
+	id 'fabric-loom' version '0.7-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -15,7 +15,6 @@ repositories {
 		name "JitPack"
 		url "https://jitpack.io"
 	}
-
 	maven {
 		name "Modmaven"
 		url "https://modmaven.dev/"
@@ -26,6 +25,9 @@ repositories {
 		content {
 			includeGroup "alexiil.mc.lib"
 		}
+	}
+	maven {
+		url "https://dl.bintray.com/natanfudge/libs"
 	}
 }
 
