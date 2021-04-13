@@ -35,10 +35,10 @@ public class PolyCompat implements ModInitializer, PolyMcEntrypoint {
 			if (doesModuleExist(modId)) {
 				try {
 					Class<?> myClass = Class.forName(getClassPathForModule(modId) + ".Init");
-					Method method = myClass.getDeclaredMethod("RegisterPolys", PolyRegistry.class);
+					Method method = myClass.getDeclaredMethod("registerPolys", PolyRegistry.class);
 					method.invoke(null, registry);
 				} catch (ClassNotFoundException | InvocationTargetException | IllegalAccessException e) {
-					printReflectionError(modId,"RegisterPolys", e);
+					printReflectionError(modId,"registerPolys", e);
 				} catch (NoSuchMethodException ignored) {
 				}
 			}
@@ -52,10 +52,10 @@ public class PolyCompat implements ModInitializer, PolyMcEntrypoint {
 			if (doesModuleExist(modId)) {
 				try {
 					Class<?> myClass = Class.forName(getClassPathForModule(modId) + ".Init");
-					Method method = myClass.getDeclaredMethod("RegisterModSpecificResources", ResourcePackMaker.class);
+					Method method = myClass.getDeclaredMethod("registerModSpecificResources", ResourcePackMaker.class);
 					method.invoke(null, pack);
 				} catch (ClassNotFoundException | InvocationTargetException | IllegalAccessException e) {
-					printReflectionError(modId,"RegisterModSpecificResources", e);
+					printReflectionError(modId,"registerModSpecificResources", e);
 				} catch (NoSuchMethodException ignored) {
 				}
 			}
