@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "nl.theepicblock.polycompat.PolyCompat"
+    ],
+    "polymc": [
+      "nl.theepicblock.polycompat.PolyCompat"
     ]
   },
   "mixins": [
